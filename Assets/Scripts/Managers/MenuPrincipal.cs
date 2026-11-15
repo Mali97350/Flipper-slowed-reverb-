@@ -2,12 +2,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using TMPro;
+
 public class MenuPrincipal : MonoBehaviour
- 
+
+
 {
   /// Fait le son quand le bouton est cliquer, requiers le menu manager dans audioSource et le son jouer dans SonClick
   public AudioSource audioSource;   
   public AudioClip SonClick;     
+  public Framechangesprite framechangesprite;
+  public TMP_Text SliderText;
+  
+  void Start()
+  {
+    UpdateSliderText(Slidermusic.value);
+  }
+  
+  public void UpdateSliderText(float value) ///display text volume 
+  {
+    SliderText.text = Mathf.RoundToInt(value * 100).ToString() + "%";
+  }
   public void ClickSound()
   {
     audioSource.PlayOneShot(SonClick);
@@ -15,8 +30,14 @@ public class MenuPrincipal : MonoBehaviour
   /// Permet de changer de scéne
   public void LancerPartie()
   {
+    Invoke("ChargerPartie", framechangesprite.fadeDelay + framechangesprite.fadeDuration);
+  }
+
+  void ChargerPartie()
+  {
     SceneManager.LoadSceneAsync("Jeux");
   }
+  
   /// Permet d'etteindre l'app
   public void Quitter()
   {
@@ -32,5 +53,9 @@ public class MenuPrincipal : MonoBehaviour
     float Volume = Slidermusic.value;
     mixeuraudio.SetFloat("Volume", Mathf.Log10(Volume) * 20);
   }
-  
+  public void RetourMenu()
+  {
+    Time.timeScale = 1f;
+    SceneManager.LoadScene("Menuprincipal");     
+  }
 }

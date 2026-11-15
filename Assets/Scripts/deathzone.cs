@@ -7,7 +7,7 @@ public class deathzone : MonoBehaviour
     public GameManager gameManager;
     private void OnTriggerEnter(Collider other)
     {
-        gameManager.LoseLife();
+        gameManager.Ballesperdu();
         Destroy(other.gameObject);
     }
 }
