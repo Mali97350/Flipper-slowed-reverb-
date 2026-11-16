@@ -276,6 +276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MenuPrincipal
   audioSource: {fileID: 0}
   SonClick: {fileID: 0}
+  framechangesprite: {fileID: 0}
+  SliderText: {fileID: 0}
   mixeuraudio: {fileID: 0}
   Slidermusic: {fileID: 0}
 --- !u!4 &73808490
@@ -1202,6 +1204,7 @@ MonoBehaviour:
   score: 0
   pointtarget: 10
   rounds: 0
+  climbspeed: 300
 --- !u!114 &496298258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2987,8 +2990,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PaddleMove
   targetPosition: -75
   originPosition: 0
-  speed: 400
   hinge: {fileID: 1339509945}
+  pressKey: 32
 --- !u!59 &1339509945
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -3180,21 +3183,21 @@ HingeJoint:
   serializedVersion: 3
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: -0.45, y: 0, z: -11.401}
+  m_Anchor: {x: -0.45, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_UseSpring: 1
   m_Spring:
-    spring: 3000
-    damper: 100
-    targetPosition: 75
+    spring: 1000
+    damper: 0
+    targetPosition: 0
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
@@ -3219,7 +3222,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.01
+  m_AngularDamping: 0.005
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3231,7 +3234,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
@@ -3323,8 +3326,8 @@ Transform:
   m_GameObject: {fileID: 1386990489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.1855937, w: 0.9826266}
-  m_LocalPosition: {x: -3.87, y: -7.574, z: 0}
-  m_LocalScale: {x: 6.8, y: 1, z: 1}
+  m_LocalPosition: {x: -5.567, y: -6.692, z: 0}
+  m_LocalScale: {x: 1.47, y: 0.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3343,8 +3346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PaddleMove
   targetPosition: 75
   originPosition: 0
-  speed: 8000
   hinge: {fileID: 1386990490}
+  pressKey: 32
 --- !u!1001 &1522872528
 PrefabInstance:
   m_ObjectHideFlags: 0
