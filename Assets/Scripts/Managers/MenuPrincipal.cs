@@ -39,10 +39,15 @@ public class MenuPrincipal : MonoBehaviour
   }
   
   /// Permet d'etteindre l'app
-  public void Quitter()
+  public void QuitterPartie()
   {
     Debug.Log("Le jeux devrais s'etteindre la mtn tout desuite");
     Application.Quit();
+  }
+
+  public void Quitter()
+  {
+    Invoke("QuitterPartie", framechangesprite.fadeDelay + framechangesprite.fadeDuration);
   }
 
   [SerializeField] private AudioMixer mixeuraudio;
@@ -52,6 +57,8 @@ public class MenuPrincipal : MonoBehaviour
   {
     float Volume = Slidermusic.value;
     mixeuraudio.SetFloat("Volume", Mathf.Log10(Volume) * 20);
+    Debug.Log(Volume);
+    UpdateSliderText(Slidermusic.value);
   }
   public void RetourMenu()
   {
